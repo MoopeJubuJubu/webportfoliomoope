@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <!-- โลโก้มหาวิทยาลัย: 
+                     - แนะนำให้วางไฟล์ชื่อ "logo.png" ในโฟลเดอร์เดียวกับ index.html
+                     - ถ้าคุณมีไฟล์ชื่ออื่น ให้แก้ attribute src ด้านล่างให้ตรง (ตัวอย่าง: src="logo.png")
+                     - ถ้าต้องการให้คลิกแล้วเปิดในแท็บใหม่ ให้เพิ่ม target="_blank" ใน <a>
+                -->
+               <img src="https://th.bing.com/th/id/R.abd66759ad77cbe38f5094bd8e274ec5?rik=TZgQ1dz7SWP%2bEg&riu=http%3a%2f%2fvet.ku.ac.th%2fvv2018%2fdownload%2flogo_ku_th.jpg&ehk=bipd5R06T0%2fQarC8cYHhtVNQ%2fDr8oZQ2pt0r5r8ySRc%3d&risl=&pid=ImgRaw&r=0" alt="โลโก้มหาวิทยาลัย" class="logo-img" width="56" height="56">
+                
+                <div class="brand-text">
+                    <strong>มหาวิทยาลัย เกษตรศาสตร์ วิทยาเขตกำแพงแสน</strong>
+                    <small>ศิลปะศาสตร์และวิทยาศาสตร์/วิทยาการคอมพิวเตอร์</small>
+                </div>
+            </div>
+
+            <!-- Hamburger button: when clicked it will scroll down to #activities -->
+            <button class="hamburger" aria-label="ไปที่ผลงาน" title="ไปที่ผลงาน" data-target="#activities">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav" aria-label="เมนูหลัก">
+                <a href="#about">About</a>
+                <a href="#activities">Activities</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container main-content">
+        <section id="about" class="intro">
+            <div class="profile">
+                <!-- รูปประจำตัว:
+                     - วางไฟล์ภาพชื่อ "profile.jpg" ในโฟลเดอร์เดียวกับ index.html
+                     - ถ้าต้องการใช้ชื่อไฟล์อื่น ให้แก้ src ด้านล่าง เช่น src="me.jpg"
+                     - แนะนำให้เตรียมรูปความกว้าง ~800-1200px สำหรับเปิดดูใน lightbox
+                -->
+              
+                    <img src="picture/552372126_1944442639669358_5602378465335545794_n.jpg" alt="รูปประจำตัว" class="profile-photo" loading="lazy">
+                
+            </div>
+
+            <div class="intro-text">
+                <h1>พีรพัฒน์ จำปานิน</h1>
+                <p class="lead">สวัสดีครับผม นาย พีรพัฒน์ จำปานิน ศึกษาอยู่ที่โรงเรียน ท่ามะกาวิทยาคมและนี้คือแฟ้มเก็บสะสมผลงานของผม</p>
+
+                
+
+                <!-- Skills / abilities block -->
+                <div class="skills">
+                    <h4>ความสามารถเฉพาะตัว</h4>
+                    <div class="skill-list">
+                        <span class="skill">HTML/CSS</span>
+                        <span class="skill">JavaScript</span>
+                        <span class="skill">UI Design</span>
+                        <span class="skill">Communication</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="activities" class="projects">
+            <h2 class="section-title">ผลงาน (Activities)</h2>
+
+            <div class="projects-grid">
+                <!-- แต่ละการ์ดชี้ไปที่ไฟล์ภาพในโฟลเดอร์ projects/ -->
+                <!-- ตัวอย่าง: projects/projectA.jpg -->
+                <a class="project-card" href="https://moopejubujubu.github.io/Myownai" target="_blank" data-caption="Project A — ปี 2025 | บทบาท: Developer">
+                    <div class="project-media" aria-hidden="false">
+                        <!-- แทนที่ src ด้วยไฟล์ของคุณ เช่น projects/projectA.jpg -->
+                        <img src="picture/8FCBA646-4C06-437B-B3FE-1A46939392C6_L0_001-15_09_2025, 17_47_52.png" alt="Project A" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Build Your Own Ai</h3>
+                        <p>ผมได้เข้าร่วมโครงการนี้เพื่อที่จะได้ลองสร้างโมเดล AI ของตัวเอง  โดยเริ่มจากการรวบรวมข้อมูลและฝึกสอนโมเดลด จากค่ายของมหาลัยเทค</p> 
+                    </div>
+                </a>
+
+                <a class="project-card" href="https://moopejubujubu.github.io/gameonweb/" target="_blank" data-caption="Project B — สาธิตงานวิชา/กิจกรรม">
+                    <div class="project-media">
+                        <!-- เปลี่ยนเป็น projects/projectB.jpg หรือไฟล์ของคุณ -->
+                        <img src="picture/image.png" alt="Project B" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Game Rock Paper Scissors</h3>
+                        <p>ได้เข้าร่วมโครงการนี้เพื่อที่จะได้ลองสร้างเกม Rock Paper Scissors ของตัวเอง โดยใช้ HTML, CSS และ JavaScript</p>
+                    </div>
+                </a>
+
+                <a class="project-card" href="#" >
+                    <div class="project-media">
+                        <img src="picture/blender.png" alt="Project C" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Blender 3D mascot</h3>
+                        <p>ได้เข้าร่วมการอบรมสอนใช้blenderเบื้องต้นและได้ลองสร้างมาสค็อตของตัวเอง</p>
+                    </div>
+                </a>
+
+                <!-- CONTACT US card: อยู่ตรงกลาง ระหว่างโปรเจกต์บน 3 และล่าง 3 -->
+                
+
+                <!-- ล่าง 3 ใบ: เปลี่ยนเป็น Facebook / Instagram / GitHub (แก้ลิงก์เป็นของคุณได้) -->
+                <a class="project-card" href="https://www.facebook.com/peraphat.jumpanin" target="_blank" data-caption="Facebook">
+                    <div class="project-media">
+                        <img src="picture/image copy.png" alt="Facebook" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Facebook</h3>
+                        <p>ติดต่อผมได้ที่ Facebook</p>
+                    </div>
+                </a>
+
+                <a class="project-card" href="https://instagram.com/nxrdmo0pe" target="_blank" data-caption="Instagram">
+                    <div class="project-media">
+                        <img src="picture/image copy 2.png" alt="Instagram" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>Instagram</h3>
+                        <p>พูดคุยหรือ DM ทาง Instagram</p>
+                    </div>
+                </a>
+
+                <a class="project-card" href="https://github.com/MoopeJubuJubu" target="_blank" data-caption="GitHub">
+                    <div class="project-media">
+                        <img src="picture/image copy 3.png" alt="GitHub" class="project-img" loading="lazy">
+                    </div>
+                    <div class="project-body">
+                        <h3>GitHub</h3>
+                        <p>โค้ดและโปรเจกต์ที่แชร์ไว้บน GitHub</p>
+                    </div>
+                </a>
+
+                <!-- ถ้าต้องการเพิ่มโปรเจกต์ใหม่ ให้ copy block ข้างบนแล้วแก้ชื่อไฟล์และคำอธิบาย -->
+            </div>
+        </section>
+    </main>
+
+    
+
+   
+
+    <script src="index.js" defer></script>
+ </body>
+ </html>
