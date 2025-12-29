@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Images preview — raw URLs</title>
+  <style>
+    body{font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:20px}
+    .grid{display:flex;flex-wrap:wrap;gap:12px}
+    .card{width:200px;border:1px solid #ddd;padding:8px;border-radius:6px;background:#fafafa}
+    .card img{max-width:100%;height:auto;display:block;margin-bottom:6px}
+    .url{font-size:12px;word-break:break-all}
+    .info{margin-bottom:12px;color:#333}
+  </style>
+</head>
+<body>
+  <h1>Images in this repository</h1>
+  <p class="info">This page automatically finds image files in the repository and shows them using raw.githubusercontent.com URLs (branch: main).</p>
+  <div id="status">Loading…</div>
+  <div id="grid" class="grid"></div>
+<script>
+(async function(){
+  const owner = 'MoopeJubuJubu';
+  const repo = 'webportfoliomoope';
+  const branch = 'main';
+  const status = document.getElementById('status');
+  const grid = document.getElementById('grid');
+  try{
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=1`;
+    const res = await fetch(apiUrl);
+    if(!res.ok) throw new Error('GitHub API error: ' + res.status + ' ' + res.statusText);
+    const data = await res.json();
+    if(!data.tree) throw new Error('Unexpected API response');
+    const images = data.tree
+      .filter(item => item.type === 'blob')
+      .filter(item => /\.(jpe?g|png|gif|webp|svg)$/i.test(item.path));
+    if(images.length === 0){
+      status.textContent = 'No image files found in the repository.';
+      return;
+    }
+    status.textContent = `Found ${images.length} image(s).`;
+    images.forEach(item => {
+      const rawUrl = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${item.path}`;
+      const card = document.createElement('div');
+      card.className = 'card';
+      const img = document.createElement('img');
+      img.src = rawUrl;
+      img.alt = item.path;
+      const link = document.createElement('a');
+      link.href = rawUrl;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = item.path;
+      const urlDiv = document.createElement('div');
+      urlDiv.className = 'url';
+      urlDiv.appendChild(link);
+      card.appendChild(img);
+      card.appendChild(urlDiv);
+      grid.appendChild(card);
+    });
+  }catch(err){
+    status.textContent = 'Error: ' + err.message + '. You can also view raw URLs manually using raw.githubusercontent.com.';
+    console.error(err);
+  }
+})();
+</script>
+</body>
+</html>
